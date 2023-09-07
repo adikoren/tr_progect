@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://adi:adikoren@10.0.0.10/flask_db'  # Update with your PostgreSQL credentials
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://adi:adi@10.0.0.10/flask_db'  # Update with your PostgreSQL credentials
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:mysecretpassword@localhost/flask_db'  # Update with your PostgreSQL credentials
 db = SQLAlchemy(app)
 
@@ -32,4 +32,4 @@ def add_animal():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        app.run(debug = True)
+        app.run(host="0.0.0.0", port=8080)
